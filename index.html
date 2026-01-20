@@ -22,8 +22,7 @@
 
     body {
       min-height: 100vh;
-      background: radial-gradient(circle at top, rgba(46, 232, 198, 0.45), transparent 55%),
-        radial-gradient(circle at bottom, rgba(135, 86, 255, 0.35), transparent 60%),
+      background: linear-gradient(160deg, rgba(22, 24, 46, 0.9), rgba(6, 8, 15, 0.95)),
         #07070f;
       color: var(--ink);
     }
@@ -126,6 +125,34 @@
       background-image: linear-gradient(120deg, #ff8a2b, #ffcf66, #d85a00, #ffe2a4);
     }
 
+    .bg-rootbeer {
+      background-image: linear-gradient(120deg, #2b0f0a, #7a3a1f, #4f1f12, #c99054);
+    }
+
+    .bg-cherry {
+      background-image: linear-gradient(120deg, #6a0b1b, #d63a5a, #4a0812, #ff9bb1);
+    }
+
+    .bg-blueberry {
+      background-image: linear-gradient(120deg, #0c1b4f, #3b6bff, #1a2d78, #9fb7ff);
+    }
+
+    .bg-lemonlime {
+      background-image: linear-gradient(120deg, #d0ff2b, #8dff4a, #6bc200, #f1ff9b);
+    }
+
+    .bg-strawberry {
+      background-image: linear-gradient(120deg, #7b0f2a, #ff5b8a, #4f081b, #ffb9d1);
+    }
+
+    .bg-ginger {
+      background-image: linear-gradient(120deg, #c88a2f, #ffd28a, #8a5715, #fff0c7);
+    }
+
+    .bg-bluecream {
+      background-image: linear-gradient(120deg, #2e3b8a, #7cc4ff, #1b225e, #cde8ff);
+    }
+
     .section-title {
       padding: 0 6vw;
       font-size: 1.4rem;
@@ -135,7 +162,6 @@
       color: rgba(255, 255, 255, 0.75);
     }
 
-codex/create-soda-themed-gaming-site-eb0p0e
     .arcade-shell {
       padding: 0 6vw 2.5rem;
       display: grid;
@@ -202,12 +228,6 @@ codex/create-soda-themed-gaming-site-eb0p0e
       padding: 0 6vw 3.5rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-
-    .game-grid {
-      padding: 0 6vw 3.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
- main
       gap: 1rem;
     }
 
@@ -219,11 +239,7 @@ codex/create-soda-themed-gaming-site-eb0p0e
       border: 1px solid rgba(255, 255, 255, 0.12);
       display: grid;
       gap: 0.6rem;
- codex/create-soda-themed-gaming-site-eb0p0e
       min-height: 190px;
-
-      min-height: 160px;
-main
       position: relative;
       overflow: hidden;
     }
@@ -277,7 +293,6 @@ main
       z-index: 1;
     }
 
-codex/create-soda-themed-gaming-site-eb0p0e
     .play-button {
       margin-top: auto;
       background: rgba(124, 255, 124, 0.22);
@@ -299,7 +314,6 @@ codex/create-soda-themed-gaming-site-eb0p0e
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
-main
     .how-to {
       padding: 2rem 6vw 3rem;
       background: rgba(8, 8, 15, 0.85);
@@ -359,11 +373,7 @@ main
 <body>
   <header>
     <h1>Soda Arcade</h1>
-codex/create-soda-themed-gaming-site-eb0p0e
     <p>125 fizzy game slots, neon-cold ambiance, and rotating soda palettes inspired by classic flavors. Tap play to load a game into the arcade screen.</p>
-
-    <p>125 fizzy game slots, neon-cold ambiance, and rotating soda palettes inspired by classic flavors. Drop in your own games, icons, and links to make this the ultimate soda-pop arcade.</p>
- main
   </header>
 
   <section class="soda-showcase">
@@ -372,10 +382,25 @@ codex/create-soda-themed-gaming-site-eb0p0e
       <p>Electric lime greens and crisp bubbles for a clean, energizing vibe.</p>
       <span class="pill">Green Fizz</span>
     </article>
+    <article class="soda-card animated-bg bg-lemonlime">
+      <h3>Lemon-Lime Splash</h3>
+      <p>Neon citrus highlights with a punchy, classic arcade glow.</p>
+      <span class="pill">Citrus Kick</span>
+    </article>
     <article class="soda-card animated-bg bg-cola">
       <h3>Cola Classic</h3>
       <p>Warm caramel browns with creamy highlights for retro arcade lounges.</p>
       <span class="pill">Caramel Rush</span>
+    </article>
+    <article class="soda-card animated-bg bg-rootbeer">
+      <h3>Root Beer</h3>
+      <p>Deep, frothy browns for vintage soda fountain vibes.</p>
+      <span class="pill">Foam Float</span>
+    </article>
+    <article class="soda-card animated-bg bg-cherry">
+      <h3>Cherry Cola</h3>
+      <p>Bold cherry reds to make your game titles pop.</p>
+      <span class="pill">Cherry Burst</span>
     </article>
     <article class="soda-card animated-bg bg-cream">
       <h3>Cream Soda</h3>
@@ -387,14 +412,33 @@ codex/create-soda-themed-gaming-site-eb0p0e
       <p>Deep violet and berry neon for a late-night arcade mood.</p>
       <span class="pill">Berry Pulse</span>
     </article>
+    <article class="soda-card animated-bg bg-blueberry">
+      <h3>Blueberry Pop</h3>
+      <p>Electric blues for galactic shooters and neon racers.</p>
+      <span class="pill">Blue Bolt</span>
+    </article>
     <article class="soda-card animated-bg bg-orange">
       <h3>Orange Pop</h3>
       <p>Juicy orange hues for high-energy multiplayer sessions.</p>
       <span class="pill">Citrus Wave</span>
     </article>
+    <article class="soda-card animated-bg bg-strawberry">
+      <h3>Strawberry Fizz</h3>
+      <p>Sweet pink gradients that feel playful and bright.</p>
+      <span class="pill">Pink Pop</span>
+    </article>
+    <article class="soda-card animated-bg bg-ginger">
+      <h3>Ginger Ale</h3>
+      <p>Warm golden tones for cozy co-op adventures.</p>
+      <span class="pill">Ginger Glow</span>
+    </article>
+    <article class="soda-card animated-bg bg-bluecream">
+      <h3>Blue Cream Soda</h3>
+      <p>Cool vanilla blues for chill puzzle nights.</p>
+      <span class="pill">Frosted Blue</span>
+    </article>
   </section>
 
- codex/create-soda-themed-gaming-site-eb0p0e
   <h2 class="section-title">Arcade Screen</h2>
   <section class="arcade-shell">
     <div class="arcade-controls">
@@ -411,34 +455,20 @@ codex/create-soda-themed-gaming-site-eb0p0e
   <h2 class="section-title">125 Game Slots</h2>
   <section class="game-grid">
     <article class="game-card" data-game="games/game-001.html">
-
-  <h2 class="section-title">125 Game Slots</h2>
-  <section class="game-grid">
-    <article class="game-card">
- main
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 001</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
- codex/create-soda-themed-gaming-site-eb0p0e
       <button class="play-button" type="button">Play</button>
     </article>
     <article class="game-card" data-game="games/game-002.html">
-    </article>
-    <article class="game-card">
- main
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 002</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
- codex/create-soda-themed-gaming-site-eb0p0e
       <button class="play-button" type="button">Play</button>
     </article>
     <article class="game-card" data-game="games/game-003.html">
-
-    </article>
-    <article class="game-card">
- main
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 003</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
