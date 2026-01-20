@@ -135,10 +135,79 @@
       color: rgba(255, 255, 255, 0.75);
     }
 
+codex/create-soda-themed-gaming-site-eb0p0e
+    .arcade-shell {
+      padding: 0 6vw 2.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .arcade-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .arcade-controls button {
+      background: rgba(124, 255, 124, 0.18);
+      color: var(--ink);
+      border: 1px solid rgba(124, 255, 124, 0.4);
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .arcade-controls button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .arcade-frame {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      background: rgba(6, 6, 12, 0.9);
+      min-height: 420px;
+      box-shadow: 0 18px 36px var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .arcade-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      border: none;
+      background: #050508;
+    }
+
+    .arcade-placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 1.6rem;
+      text-align: center;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .game-grid {
+      padding: 0 6vw 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+
     .game-grid {
       padding: 0 6vw 3.5rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+ main
       gap: 1rem;
     }
 
@@ -150,7 +219,11 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       display: grid;
       gap: 0.6rem;
+ codex/create-soda-themed-gaming-site-eb0p0e
+      min-height: 190px;
+
       min-height: 160px;
+main
       position: relative;
       overflow: hidden;
     }
@@ -204,6 +277,29 @@
       z-index: 1;
     }
 
+codex/create-soda-themed-gaming-site-eb0p0e
+    .play-button {
+      margin-top: auto;
+      background: rgba(124, 255, 124, 0.22);
+      color: var(--ink);
+      border: 1px solid rgba(124, 255, 124, 0.55);
+      border-radius: 999px;
+      padding: 0.45rem 0.8rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .play-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+main
     .how-to {
       padding: 2rem 6vw 3rem;
       background: rgba(8, 8, 15, 0.85);
@@ -263,7 +359,11 @@
 <body>
   <header>
     <h1>Soda Arcade</h1>
+codex/create-soda-themed-gaming-site-eb0p0e
+    <p>125 fizzy game slots, neon-cold ambiance, and rotating soda palettes inspired by classic flavors. Tap play to load a game into the arcade screen.</p>
+
     <p>125 fizzy game slots, neon-cold ambiance, and rotating soda palettes inspired by classic flavors. Drop in your own games, icons, and links to make this the ultimate soda-pop arcade.</p>
+ main
   </header>
 
   <section class="soda-showcase">
@@ -294,773 +394,971 @@
     </article>
   </section>
 
+ codex/create-soda-themed-gaming-site-eb0p0e
+  <h2 class="section-title">Arcade Screen</h2>
+  <section class="arcade-shell">
+    <div class="arcade-controls">
+      <button type="button" id="back-button">Back</button>
+      <button type="button" id="forward-button">Forward</button>
+      <button type="button" id="refresh-button">Refresh</button>
+    </div>
+    <div class="arcade-frame">
+      <iframe id="game-frame" title="Soda Arcade Game Viewer" src="about:blank"></iframe>
+      <div class="arcade-placeholder">Pick any game below and hit Play to load it here.</div>
+    </div>
+  </section>
+
+  <h2 class="section-title">125 Game Slots</h2>
+  <section class="game-grid">
+    <article class="game-card" data-game="games/game-001.html">
+
   <h2 class="section-title">125 Game Slots</h2>
   <section class="game-grid">
     <article class="game-card">
+ main
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 001</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+ codex/create-soda-themed-gaming-site-eb0p0e
+      <button class="play-button" type="button">Play</button>
+    </article>
+    <article class="game-card" data-game="games/game-002.html">
     </article>
     <article class="game-card">
+ main
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 002</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+ codex/create-soda-themed-gaming-site-eb0p0e
+      <button class="play-button" type="button">Play</button>
+    </article>
+    <article class="game-card" data-game="games/game-003.html">
+
     </article>
     <article class="game-card">
+ main
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 003</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-004.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 004</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-005.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 005</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-006.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 006</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-007.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 007</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-008.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 008</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-009.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 009</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-010.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 010</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-011.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 011</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-012.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 012</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-013.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 013</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-014.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 014</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-015.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 015</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-016.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 016</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-017.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 017</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-018.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 018</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-019.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 019</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-020.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 020</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-021.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 021</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-022.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 022</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-023.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 023</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-024.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 024</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-025.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 025</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-026.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 026</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-027.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 027</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-028.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 028</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-029.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 029</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-030.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 030</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-031.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 031</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-032.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 032</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-033.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 033</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-034.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 034</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-035.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 035</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-036.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 036</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-037.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 037</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-038.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 038</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-039.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 039</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-040.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 040</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-041.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 041</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-042.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 042</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-043.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 043</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-044.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 044</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-045.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 045</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-046.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 046</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-047.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 047</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-048.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 048</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-049.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 049</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-050.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 050</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-051.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 051</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-052.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 052</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-053.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 053</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-054.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 054</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-055.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 055</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-056.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 056</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-057.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 057</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-058.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 058</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-059.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 059</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-060.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 060</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-061.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 061</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-062.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 062</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-063.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 063</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-064.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 064</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-065.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 065</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-066.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 066</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-067.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 067</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-068.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 068</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-069.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 069</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-070.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 070</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-071.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 071</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-072.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 072</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-073.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 073</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-074.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 074</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-075.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 075</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-076.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 076</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-077.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 077</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-078.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 078</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-079.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 079</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-080.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 080</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-081.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 081</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-082.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 082</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-083.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 083</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-084.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 084</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-085.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 085</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-086.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 086</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-087.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 087</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-088.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 088</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-089.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 089</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-090.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 090</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-091.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 091</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-092.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 092</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-093.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 093</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-094.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 094</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-095.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 095</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-096.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 096</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-097.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 097</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-098.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 098</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-099.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 099</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-100.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 100</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-101.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 101</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-102.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 102</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-103.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 103</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-104.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 104</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-105.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 105</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-106.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 106</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-107.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 107</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-108.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 108</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-109.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 109</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-110.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 110</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-111.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 111</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-112.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 112</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-113.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 113</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-114.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 114</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-115.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 115</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-116.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 116</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-117.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 117</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-118.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 118</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-119.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 119</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-120.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 120</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-121.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 121</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-122.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 122</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-123.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 123</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-124.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 124</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
-    <article class="game-card">
+    <article class="game-card" data-game="games/game-125.html">
       <div class="game-icon">🎮</div>
       <div class="game-title">Game Slot 125</div>
       <div class="game-meta">Arcade | Co-op | 2P</div>
       <span class="game-tag">Ready</span>
+      <button class="play-button" type="button">Play</button>
     </article>
   </section>
 
   <section class="how-to">
-    <h2>How to add more games & icons</h2>
+    <h2>How to add games & icons (beginner-friendly)</h2>
     <ol>
-      <li>Duplicate any <code>&lt;article class="game-card"&gt;</code> block inside <code>.game-grid</code> and update the slot number, title, and tags.</li>
-      <li>Replace the emoji in <code>&lt;div class="game-icon"&gt;🎮&lt;/div&gt;</code> with another emoji, a letter, or an SVG icon.</li>
-      <li>If you want image icons, swap the icon div for an <code>&lt;img&gt;</code> tag, e.g. <code>&lt;img class="game-icon" src="icons/space.png" alt="Space Raiders" /&gt;</code> and put your icon images in an <code>icons/</code> folder.</li>
-      <li>To turn a slot into a real game link, wrap the card in <code>&lt;a class="game-card" href="/games/space-raiders.html"&gt;...&lt;/a&gt;</code> and add that game file.</li>
-      <li>Add more soda themes by creating a new class in the <code>animated-bg</code> section (example: <code>.bg-berry { background-image: linear-gradient(...); }</code>) and applying it to a new <code>.soda-card</code>.</li>
+      <li>Pick a game card and copy it. Look for a block that starts with <code>&lt;article class="game-card"&gt;</code>.</li>
+      <li>Paste it right under another card and change the text for the new game name.</li>
+      <li>Change the icon by replacing the emoji inside <code>&lt;div class="game-icon"&gt;🎮&lt;/div&gt;</code>.</li>
+      <li>To use a picture icon, swap the icon div for: <code>&lt;img class="game-icon" src="icons/space.png" alt="Space Raiders" /&gt;</code> and put that image in an <code>icons/</code> folder.</li>
+      <li>Make your game open in the screen: update <code>data-game="games/game-001.html"</code> to the file you want (example: <code>games/space-raiders.html</code>).</li>
+      <li>Add that game file in a <code>games/</code> folder so the Play button can find it.</li>
+      <li>Want more soda palettes? Add a new CSS class (ex: <code>.bg-berry</code>) in the style section and place it on a new soda card.</li>
     </ol>
   </section>
 
   <footer>
     Built for soda-powered gamers. Mix, match, and plug in your own arcade lineup.
   </footer>
+
+  <script>
+    const gameFrame = document.getElementById("game-frame");
+    const backButton = document.getElementById("back-button");
+    const forwardButton = document.getElementById("forward-button");
+    const refreshButton = document.getElementById("refresh-button");
+    const playButtons = document.querySelectorAll(".play-button");
+    const placeholder = document.querySelector(".arcade-placeholder");
+
+    const loadGame = (gameUrl) => {
+      if (!gameUrl) {
+        return;
+      }
+      gameFrame.src = gameUrl;
+      placeholder.style.display = "none";
+    };
+
+    playButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".game-card");
+        const gameUrl = card ? card.dataset.game : "";
+        loadGame(gameUrl);
+      });
+    });
+
+    backButton.addEventListener("click", () => {
+      if (gameFrame.contentWindow) {
+        gameFrame.contentWindow.history.back();
+      }
+    });
+
+    forwardButton.addEventListener("click", () => {
+      if (gameFrame.contentWindow) {
+        gameFrame.contentWindow.history.forward();
+      }
+    });
+
+    refreshButton.addEventListener("click", () => {
+      if (gameFrame.contentWindow) {
+        gameFrame.contentWindow.location.reload();
+      }
+    });
+  </script>
 </body>
 </html>
