@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soda Arcade</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f8f8ff;
+      --shadow: rgba(0, 0, 0, 0.35);
+      --card-bg: rgba(12, 12, 20, 0.75);
+      --accent: 124, 255, 124;
+      --bg-top: 22, 24, 46;
+      --bg-bottom: 6, 8, 15;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(160deg, rgba(var(--bg-top), 0.92), rgba(var(--bg-bottom), 0.96)),
+        #07070f;
+      color: var(--ink);
+    }
+
+    body.theme-7up {
+      --accent: 124, 255, 124;
+      --bg-top: 10, 46, 20;
+      --bg-bottom: 6, 10, 8;
+    }
+
+    body.theme-lemonlime {
+      --accent: 208, 255, 60;
+      --bg-top: 30, 45, 10;
+      --bg-bottom: 8, 12, 4;
+    }
+
+    body.theme-cola {
+      --accent: 219, 143, 88;
+      --bg-top: 45, 20, 10;
+      --bg-bottom: 12, 6, 4;
+    }
+
+    body.theme-rootbeer {
+      --accent: 203, 147, 84;
+      --bg-top: 38, 18, 10;
+      --bg-bottom: 12, 7, 5;
+    }
+
+    body.theme-cherry {
+      --accent: 255, 91, 138;
+      --bg-top: 62, 12, 26;
+      --bg-bottom: 18, 6, 12;
+    }
+
+    body.theme-cream {
+      --accent: 255, 213, 138;
+      --bg-top: 60, 45, 18;
+      --bg-bottom: 18, 12, 6;
+    }
+
+    body.theme-grape {
+      --accent: 201, 137, 255;
+      --bg-top: 44, 16, 62;
+      --bg-bottom: 12, 6, 24;
+    }
+
+    body.theme-blueberry {
+      --accent: 124, 196, 255;
+      --bg-top: 10, 22, 66;
+      --bg-bottom: 6, 10, 28;
+    }
+
+    body.theme-orange {
+      --accent: 255, 138, 43;
+      --bg-top: 66, 30, 10;
+      --bg-bottom: 18, 10, 4;
+    }
+
+    body.theme-strawberry {
+      --accent: 255, 91, 138;
+      --bg-top: 66, 14, 34;
+      --bg-bottom: 18, 8, 16;
+    }
+
+    body.theme-ginger {
+      --accent: 255, 210, 138;
+      --bg-top: 66, 46, 14;
+      --bg-bottom: 18, 12, 6;
+    }
+
+    body.theme-bluecream {
+      --accent: 124, 196, 255;
+      --bg-top: 32, 40, 110;
+      --bg-bottom: 12, 16, 46;
+    }
+
+    body.reduce-motion .animated-bg,
+    body.reduce-motion .soda-card::before {
+      animation: none;
+    }
+
+    body.reduce-motion .arcade-controls button,
+    body.reduce-motion .play-button {
+      transition: none;
+    }
+
+    body.compact-grid .game-grid {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    body.compact-grid .game-card {
+      min-height: 165px;
+    }
+
+    body.high-contrast {
+      --ink: #ffffff;
+      --card-bg: rgba(0, 0, 0, 0.85);
+    }
+
+    header {
+      padding: 2.5rem 7vw 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+    }
+
+    header p {
+      max-width: 760px;
+      margin: 0 auto;
+      opacity: 0.86;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    .site-nav {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      color: var(--ink);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(var(--accent), 0.4);
+      background: rgba(var(--accent), 0.12);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .soda-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.4rem;
+      padding: 1.5rem 6vw 2.5rem;
+    }
+
+    .soda-card {
+      border-radius: 18px;
+      padding: 1.2rem 1.1rem;
+      min-height: 140px;
+      background: var(--card-bg);
+      box-shadow: 0 12px 30px var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .soda-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 50%, rgba(255, 255, 255, 0.12));
+      opacity: 0.5;
+      mix-blend-mode: screen;
+      animation: shimmer 6s ease-in-out infinite;
+    }
+
+    .soda-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .soda-card p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    .soda-card .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .animated-bg {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background-size: 400% 400%;
+      animation: sodaFlow 16s ease infinite;
+    }
+
+    .bg-7up {
+      background-image: linear-gradient(120deg, #00b04a, #5bff8e, #0f6f3d, #b5ffbc);
+    }
+
+    .bg-cola {
+      background-image: linear-gradient(120deg, #4d1f0f, #c26b3b, #7a3320, #f0b27a);
+    }
+
+    .bg-cream {
+      background-image: linear-gradient(120deg, #f5d58a, #fff1c1, #d8b26f, #fff9e2);
+    }
+
+    .bg-grape {
+      background-image: linear-gradient(120deg, #4b1a6b, #8a38c9, #35124f, #c989ff);
+    }
+
+    .bg-orange {
+      background-image: linear-gradient(120deg, #ff8a2b, #ffcf66, #d85a00, #ffe2a4);
+    }
+
+    .bg-rootbeer {
+      background-image: linear-gradient(120deg, #2b0f0a, #7a3a1f, #4f1f12, #c99054);
+    }
+
+    .bg-cherry {
+      background-image: linear-gradient(120deg, #6a0b1b, #d63a5a, #4a0812, #ff9bb1);
+    }
+
+    .bg-blueberry {
+      background-image: linear-gradient(120deg, #0c1b4f, #3b6bff, #1a2d78, #9fb7ff);
+    }
+
+    .bg-lemonlime {
+      background-image: linear-gradient(120deg, #d0ff2b, #8dff4a, #6bc200, #f1ff9b);
+    }
+
+    .bg-strawberry {
+      background-image: linear-gradient(120deg, #7b0f2a, #ff5b8a, #4f081b, #ffb9d1);
+    }
+
+    .bg-ginger {
+      background-image: linear-gradient(120deg, #c88a2f, #ffd28a, #8a5715, #fff0c7);
+    }
+
+    .bg-bluecream {
+      background-image: linear-gradient(120deg, #2e3b8a, #7cc4ff, #1b225e, #cde8ff);
+    }
+
+    .section-title {
+      padding: 0 6vw;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .arcade-shell {
+      padding: 0 6vw 2.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .arcade-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .arcade-controls button {
+      background: rgba(var(--accent), 0.18);
+      color: var(--ink);
+      border: 1px solid rgba(var(--accent), 0.4);
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .arcade-controls button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .arcade-frame {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      background: rgba(6, 6, 12, 0.9);
+      min-height: 420px;
+      box-shadow: 0 18px 36px var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .arcade-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      border: none;
+      background: #050508;
+    }
+
+    .arcade-placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 1.6rem;
+      text-align: center;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .game-grid {
+      padding: 0 6vw 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1rem;
+    }
+
+    .subsection-title {
+      padding: 0 6vw;
+      margin: 1rem 0 0.5rem;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .game-card {
+      background: rgba(9, 11, 18, 0.78);
+      border-radius: 16px;
+      padding: 0.9rem;
+      box-shadow: 0 10px 22px var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: grid;
+      gap: 0.6rem;
+      min-height: 190px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(var(--accent), 0.25), transparent 65%);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .game-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      background: rgba(var(--accent), 0.15);
+      border: 1px solid rgba(var(--accent), 0.4);
+      position: relative;
+      z-index: 1;
+    }
+
+    .game-title {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .game-meta {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      position: relative;
+      z-index: 1;
+    }
+
+    .game-tag {
+      align-self: start;
+      justify-self: start;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .play-button {
+      margin-top: auto;
+      background: rgba(var(--accent), 0.22);
+      color: var(--ink);
+      border: 1px solid rgba(var(--accent), 0.55);
+      border-radius: 999px;
+      padding: 0.45rem 0.8rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .play-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .how-to {
+      padding: 2rem 6vw 3rem;
+      background: rgba(8, 8, 15, 0.85);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .how-to h2 {
+      margin-bottom: 0.8rem;
+      font-size: 1.6rem;
+    }
+
+    .how-to ol {
+      display: grid;
+      gap: 0.8rem;
+      line-height: 1.6;
+      padding-left: 1.1rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .how-to code {
+      color: #8cff8c;
+      font-weight: 600;
+    }
+
+    .settings {
+      padding: 2.2rem 6vw 2.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .settings-card {
+      background: rgba(10, 12, 20, 0.75);
+      border-radius: 16px;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 24px var(--shadow);
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .settings-card h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .theme-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .theme-button {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--ink);
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0;
+    }
+
+    .toggle input {
+      width: 42px;
+      height: 22px;
+      accent-color: rgb(var(--accent));
+    }
+
+    footer {
+      padding: 1.2rem 6vw 2.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    @keyframes sodaFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-25%);
+      }
+      50% {
+        transform: translateX(25%);
+      }
+      100% {
+        transform: translateX(-25%);
+      }
+    }
+  </style>
+</head>
+<body class="theme-7up">
+  <header>
+    <h1>Soda Arcade Screen</h1>
+    <p>Load a game into the embedded iframe and use the navigation controls.</p>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="themes.html">Themes</a>
+      <a href="arcade.html">Arcade</a>
+      <a href="games.html">Games</a>
+      <a href="settings.html">Settings</a>
+      <a href="how-to.html">How-To</a>
+    </nav>
+  </header>
+
+  <h2 class="section-title" id="arcade">Arcade Screen</h2>
+  <section class="arcade-shell">
+    <div class="arcade-controls">
+      <button type="button" id="back-button">Back</button>
+      <button type="button" id="forward-button">Forward</button>
+      <button type="button" id="refresh-button">Refresh</button>
+    </div>
+    <div class="arcade-frame">
+      <iframe id="game-frame" title="Soda Arcade Game Viewer" src="about:blank"></iframe>
+      <div class="arcade-placeholder">Pick any game below and hit Play to load it here.</div>
+    </div>
+  </section>
+
+  <footer>
+    Tip: Visit Games and press Play to load a title here.
+  </footer>
+  <script>
+    const gameFrame = document.getElementById("game-frame");
+    const backButton = document.getElementById("back-button");
+    const forwardButton = document.getElementById("forward-button");
+    const refreshButton = document.getElementById("refresh-button");
+    const placeholder = document.querySelector(".arcade-placeholder");
+
+    const loadGame = (gameUrl) => {
+      if (!gameUrl) {
+        return;
+      }
+      gameFrame.src = gameUrl;
+      placeholder.style.display = "none";
+      localStorage.setItem("sodaLastGame", gameUrl);
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const paramGame = params.get("game");
+    const storedGame = localStorage.getItem("sodaLastGame");
+    loadGame(paramGame || storedGame);
+
+    backButton.addEventListener("click", () => {
+      if (gameFrame.contentWindow) {
+        gameFrame.contentWindow.history.back();
+      }
+    });
+
+    forwardButton.addEventListener("click", () => {
+      if (gameFrame.contentWindow) {
+        gameFrame.contentWindow.history.forward();
+      }
+    });
+
+    refreshButton.addEventListener("click", () => {
+      if (gameFrame.contentWindow) {
+        gameFrame.contentWindow.location.reload();
+      }
+    });
+  </script>
+  <script>
+    const savedTheme = localStorage.getItem("sodaTheme") || "theme-7up";
+    const savedMotion = localStorage.getItem("sodaReduceMotion") === "true";
+    const savedCompact = localStorage.getItem("sodaCompactGrid") === "true";
+    const savedContrast = localStorage.getItem("sodaHighContrast") === "true";
+    const themeClasses = [
+      "theme-7up",
+      "theme-lemonlime",
+      "theme-cola",
+      "theme-rootbeer",
+      "theme-cherry",
+      "theme-cream",
+      "theme-grape",
+      "theme-blueberry",
+      "theme-orange",
+      "theme-strawberry",
+      "theme-ginger",
+      "theme-bluecream"
+    ];
+
+    document.body.classList.remove(...themeClasses);
+    document.body.classList.add(savedTheme);
+    document.body.classList.toggle("reduce-motion", savedMotion);
+    document.body.classList.toggle("compact-grid", savedCompact);
+    document.body.classList.toggle("high-contrast", savedContrast);
+  </script>
+</body>
+</html>
